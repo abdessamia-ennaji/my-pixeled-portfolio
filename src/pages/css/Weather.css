@@ -1,0 +1,78 @@
+/* src/pages/Weather.css */
+.page-content {
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.weather-container {
+  display: flex;
+  align-items: center;
+  gap: 40px; 
+  margin: 40px 0;
+}
+
+.icon-city {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.weather-icon {
+  width: 200px; /* Bigger icon */
+  height: 200px;
+}
+
+.city-name {
+  font-size: 2.5rem; /* Big font for city name */
+  font-weight: bold;
+  color: #8B956D;
+  text-transform: uppercase;
+  font-family: "Silkscreen", sans-serif;
+}
+
+.weather-info {
+  text-align: center;
+  
+}
+
+.temperature {
+  font-size: 6rem; /* Bigger font for temperature */
+  font-weight: bold;
+  font-family: "Silkscreen", sans-serif;
+  margin: 0;
+  color: #8B956D;
+}
+
+.description {
+  font-size: 2rem; /* Bigger font for description */
+  margin: 10px 0 0;
+  text-transform: capitalize;
+  font-family: "Silkscreen", sans-serif;
+}
+
+.error {
+  color: #ff4444;
+  font-size: 1.5rem; /* Slightly larger error text */
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 40px;
+  padding: 12px 24px; /* Larger button */
+  background-color: #8B956D;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 1.5rem; /* Bigger font for button */
+  transition: background-color 0.3s ease;
+}
+
+.back-link:hover {
+  background-color: #6B734D;
+  color: white;
+}

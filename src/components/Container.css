@@ -1,0 +1,94 @@
+body {
+    background-color: #1F1F1F;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    color: #8B956D;
+    overflow-x: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Scanline Effect */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.1) 0px,
+      rgba(0, 0, 0, 0.1) 1px,
+      transparent 2px,
+      transparent 4px
+    );
+    pointer-events: none;
+    opacity: 0.4;
+    animation: glitch 0.2s infinite alternate ease-in-out;
+  }
+  
+  /* Pixelated Effect */
+  body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.2;
+    pointer-events: none;
+  }
+  
+  /* Glitch Animation */
+  @keyframes glitch {
+    0% { transform: translateY(0); }
+    25% { transform: translateY(-1px); }
+    50% { transform: translateY(1px); }
+    75% { transform: translateY(-2px); }
+    100% { transform: translateY(2px); }
+  }
+  
+  .custom-container {
+    background-color: #C4CFA1;
+    padding: 40px;
+    border: 10px solid #8B956D;
+    width: 1200px; /* Fixed width */
+    max-width: 100%; /* Ensures it doesn't exceed viewport width */
+    min-height: 600px; /* Consistent minimum height */
+    margin: 0 auto; /* Center horizontally */
+    clip-path: polygon(
+      10px 0, calc(100% - 10px) 0, calc(100% - 10px) 10px, 100% 10px,
+      100% calc(100% - 10px), calc(100% - 10px) calc(100% - 10px),
+      calc(100% - 10px) 100%, 10px 100%, 10px calc(100% - 10px),
+      0 calc(100% - 10px), 0 10px, 10px 10px
+    );
+    box-sizing: border-box; /* Include padding and border in dimensions */
+  }
+  
+  /* Ensure the row fills the container */
+  .custom-container .row {
+    width: 100%;
+    min-height: 100%;
+    margin: 0; /* Remove Bootstrap's negative margins */
+  }
+  
+  /* Optional: Responsive adjustment */
+  @media (max-width: 1220px) { /* 1200px + 20px for border */
+    .custom-container {
+      width: calc(100% - 20px); /* Full width minus borders */
+    }
+  }
+
+
+  .silkscreen-regular {
+    font-family: "Silkscreen", sans-serif;
+    font-style: normal;
+    margin-top: 10px;
+    color: #1F1F1F;
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+  }
+
+
