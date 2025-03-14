@@ -1,18 +1,23 @@
-import React from 'react';
+// No need to import React if not using JSX transformation issues
 
 // Dynamically import all SVGs in the folder
 const svgModules = import.meta.glob('../assets/pixel-icons/*.svg', { eager: true, as: 'raw' });
 
-// Create a mapping of icon names to their SVG content
-const icons = Object.entries(svgModules).reduce((acc, [path, content]) => {
+// Define the type for the icons mapping
+const icons: Record<string, string> = Object.entries(svgModules).reduce((acc, [path, content]) => {
   const name = path.split('/').pop()?.replace('.svg', '') || '';
-  // Replace hardcoded `fill` attributes with `currentColor`
-  acc[name] = content.replace(/fill="#[^"]+"/g, 'fill="currentColor"');
+  acc[name] = (content as string).replace(/fill="#[^"]+"/g, 'fill="currentColor"');
   return acc;
-}, {});
+}, {} as Record<string, string>);
+
+// Define props interface
+interface IconProps {
+  name: string;
+  className?: string;
+}
 
 // Icon Component
-const Icon = ({ name, className = '' }) => {
+const Icon: React.FC<IconProps> = ({ name, className = '' }) => {
   const svgContent = icons[name];
 
   if (!svgContent) {
