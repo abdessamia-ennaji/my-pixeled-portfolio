@@ -109,7 +109,7 @@ const Weather: React.FC = () => {
               alt={weather.condition}
               className="weather-icon"
             />
-            <span className="city-name">Marrakech</span>
+            <span className="city-name">Marrakech TEST</span>
           </div>
           <div className="weather-info">
             <p className="temperature">{weather.temp}°C</p>
